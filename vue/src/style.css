@@ -1,0 +1,7 @@
+body {
+  background-color: #232323;
+  display: flex;
+  place-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
