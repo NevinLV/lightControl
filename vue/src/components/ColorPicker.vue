@@ -22,7 +22,7 @@ const updateColor = (event: Event) => {
 </script>
 
 <template>
-  <div class="color-picker-container">
+  <div>
     <input
         ref="colorPickerRef"
         type="color"
@@ -33,7 +33,7 @@ const updateColor = (event: Event) => {
     >
 
     <div
-        class="color-preview"
+        class="command-button"
         :style="{ backgroundColor: props.modelValue }"
         @click="openColorPicker"
         @keydown.enter="openColorPicker"
@@ -55,25 +55,5 @@ const updateColor = (event: Event) => {
   height: 0;
   position: absolute;
   pointer-events: none;
-}
-
-.color-preview {
-  width: 80px;
-  height: 80px;
-  border-radius: 15px;
-  cursor: pointer;
-  border: 2px solid #575757;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  transition: all 0.2s ease;
-}
-
-.color-preview:hover {
-  transform: scale(1.1);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-.color-preview:focus-visible {
-  outline: 2px solid #00aaff;
-  outline-offset: 2px;
 }
 </style>

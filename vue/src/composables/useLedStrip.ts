@@ -9,6 +9,7 @@ const START_CODE = ['53', '43', '0', 'b1', '82', '80'];
 export function useLedStrip() {
     const leds = ref<LED[]>([]);
     const currentColor = ref('#ff00ff');
+    const isListeningMusic = ref<boolean>(false);
 
     const initializeLEDs = () => {
         leds.value = Array.from({ length: LED_COUNT }, (_, i) => ({
@@ -63,6 +64,14 @@ export function useLedStrip() {
         }
     };
 
+    const changleListenMusicStatus = async () => {
+        try {
+            await axios.post('http://localhost:8000/listen-music/');
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
     const updateLEDColor = async (id: number) => {
         [id, id + 1].forEach(ledId => {
             const led = leds.value.find(l => l.id === ledId);
@@ -96,6 +105,7 @@ export function useLedStrip() {
         currentColor,
         updateLEDColor,
         resetColors,
-        setSingleLED
+        setSingleLED,
+        changleListenMusicStatus
     };
 }

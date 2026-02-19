@@ -5,3 +5,25 @@ body {
   justify-content: center;
   overflow: hidden;
 }
+button{
+  border-width: 0;
+}
+
+.command-button {
+  width: 80px;
+  height: 80px;
+  border-radius: 15px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+.command-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.command-button:focus-visible {
+  outline: 2px solid #00aaff;
+  outline-offset: 2px;
+}

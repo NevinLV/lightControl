@@ -5,7 +5,7 @@ import ComputerComponent from './components/ComputerComponent.vue';
 import ColorPicker from './components/ColorPicker.vue';
 import { useLedStrip } from './composables/useLedStrip';
 
-const { leds, currentColor, updateLEDColor, resetColors } = useLedStrip();
+const { leds, currentColor, updateLEDColor, resetColors, changleListenMusicStatus } = useLedStrip();
 
 const isMouseDown = ref(false);
 
@@ -54,6 +54,14 @@ onUnmounted(() => {
 
     <div class="command">
       <ColorPicker v-model="currentColor"/>
+      <button class="command-button bit-button" @click="changleListenMusicStatus()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-music-note" viewBox="0 0 16 16">
+          <path d="M9 13c0 1.105-1.12 2-2.5 2S4 14.105 4 13s1.12-2 2.5-2 2.5.895 2.5 2z"/>
+          <path fill-rule="evenodd" d="M9 3v10H8V3h1z"/>
+          <path d="M8 2.82a1 1 0 0 1 .804-.98l3-.6A1 1 0 0 1 13 2.22V4L8 5V2.82z"/>
+        </svg>
+      </button>
+
     </div>
 
     <ComputerComponent>
@@ -70,8 +78,10 @@ onUnmounted(() => {
 <style scoped>
 .command{
   position: absolute;
+  display: flex;
+  gap: 5px;
   top: 35%;
-  left: calc(50% - 95px);
+  left: calc(50% - 140px);
 
   font-size: 15px;
   padding: 50px;
@@ -122,5 +132,10 @@ onUnmounted(() => {
 
 .reload:hover{
   color: aquamarine;
+}
+
+.bit-button{
+  background-color: #222222;
+  color: white;
 }
 </style>
